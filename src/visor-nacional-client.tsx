@@ -727,7 +727,7 @@ export default function VisorNacionalClient() {
       <header className="topbar">
         <a className="institutional-brand" href="#visor" aria-label="Inicio del visor nacional">
           <img
-            src={`${import.meta.env.BASE_URL}color-mop-slogan.png`}
+            src={`${import.meta.env.BASE_URL}color-mop-slogan.svg`}
             alt="Ministerio de Obras Públicas, Gobierno de Chile — Trabajando para usted"
           />
         </a>
