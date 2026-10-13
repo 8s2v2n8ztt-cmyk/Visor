@@ -554,7 +554,7 @@ export default function VisorNacionalClient() {
           const system = systemsById.get(id);
           if (system) {
             layer.bindTooltip(
-              `<strong>Área de servicio</strong><br>${system.name}<br>${system.commune} · ${system.region}`,
+              `<strong>Área de servicio</strong><br>${escapeHtml(system.name)}<br>${escapeHtml(system.commune)} · ${escapeHtml(system.region)}`,
               { sticky: true },
             );
           }
@@ -1206,7 +1206,9 @@ export default function VisorNacionalClient() {
           <strong>Información de referencia</strong>
           <p>
             Información obtenida de la Base de Datos Nacional de Servicios Sanitarios
-            Rurales y de la capa nacional de Áreas de Servicio.
+            Rurales, actualizada a junio de 2026, y de la capa nacional de Áreas de
+            Servicio incorporada el 13 de octubre de 2026. Los sistemas sin polígono
+            disponible permanecen incluidos en el mapa y en los indicadores.
           </p>
         </section>
 
@@ -1279,3 +1281,4 @@ export default function VisorNacionalClient() {
     </div>
   );
 }
+
