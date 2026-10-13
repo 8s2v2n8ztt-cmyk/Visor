@@ -72,6 +72,8 @@ for rownum,row in enumerate(rows[1:],2):
     lon,lat = r["COORD_GEOGRÁFICAS_LONGITUD_SIRGAS_CHILE"],r["COORD_GEOGRÁFICAS_LATITUD_SIRGAS_CHILE"]
     assert isinstance(lon,(int,float)) and isinstance(lat,(int,float)) and -110<lon<-65 and -57<lat<-17
     system = {"id":text(r["MXLOCATION"]),**{k:text(r[v]) for k,v in fields.items()},"year":r["AÑO_PUESTA_EN_MARCHA"],"connections":r["N°_ARRANQUES"],"beneficiaries":r["BENEFICIARIOS_ESTIMADOS"],"utm":{"east":r["COORD_ESTE_DATUM_WGS84"],"north":r["COORD_NORTE_DATUM_WGS84"],"zone":r["HUSO"]},"originalZone":r["HUSO"],"location":{"lat":lat,"lng":lon},"coordinateStatus":"VALIDADA_PARA_VISOR","sourceRow":rownum}
+    if system["region"] == "ARAUCANÍA" and system["province"] == "CAUTIN":
+        system["province"] = "CAUTÍN"
     assert all(isinstance(system[k],(int,float)) and system[k]>=0 for k in ["connections","beneficiaries"])
     systems.append(system)
 by_id = {s["id"]:s for s in systems}
